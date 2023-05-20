@@ -18,7 +18,6 @@ const Formulario = () => {
                 console.log(error)
             }
         }
-
         obtenerDatos();
     }, [])
 
@@ -52,11 +51,15 @@ const Formulario = () => {
             <div className="col-8">
                 <h4 className="text-center">Listado de Libros</h4>
                 <ul className="list-group">
-                    <li className="list-group-item">
-                        <span className="lead">Test</span>
-                        <button className="btn btn-danger btn-sm float-end mx-2">Eliminar</button>
-                        <button className="btn btn-warning btn-sm float-end">Editar</button>
-                    </li>
+                    {  
+                        listaLibros.map(item =>(
+                            <li className="list-group-item" key={item.id}>
+                                <span className="lead">{item.nombreLibro}-{item.nombreAutor}</span>
+                                <button className="btn btn-danger btn-sm float-end mx-2">Eliminar</button>
+                                <button className="btn btn-warning btn-sm float-end">Editar</button>
+                            </li>
+                        ))   
+                    }        
                 </ul>
             </div>
             <div className="col-4">
